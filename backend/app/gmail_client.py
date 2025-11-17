@@ -34,6 +34,8 @@ def fetch_unread_emails():
         # Extract subject and sender
         subject = next((h["value"] for h in headers if h["name"] == "Subject"), "")
         sender = next((h["value"] for h in headers if h["name"] == "From"), "")
+        internal_date = msg_obj.get("internalDate")  # Gmail timestamp in ms
+
 
         # Extract body
         body = ""
@@ -52,7 +54,8 @@ def fetch_unread_emails():
             "id": msg["id"],
             "sender": sender,
             "subject": subject,
-            "body": body
+            "body": body,
+            "timestamp": internal_date  
         })
 
     return emails
