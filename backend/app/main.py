@@ -5,12 +5,28 @@ from .gmail_client import fetch_unread_emails
 from .ai_service import extract_task_from_email
 from .priority import apply_priority_rules
 from .gmail_client import fetch_unread_emails
+from .task_repository import save_task
 
 from datetime import datetime
 import pytz
 
 app = FastAPI()
 settings = Settings()
+
+from .calendar_client import create_calendar_event
+
+@app.get("/test-calendar")  
+def test_calendar():
+    sample_task = {
+        "task_title": "Test Auto Event",
+        "deadline": "2025-02-04T18:00:00",
+        "priority": "HIGH",
+        "raw_subject": "Testing Event",
+        "raw_sender": "system@test"
+    }
+    
+    return create_calendar_event(sample_task)
+
 
 @app.get("/")
 def root():
@@ -51,6 +67,7 @@ def process_test():
         ai_data["raw_subject"] = mail["subject"]
         ai_data["raw_sender"] = mail["sender"]
 
-        results.append(ai_data)
+        saved = save_task(ai_data)
+        results.append(saved)
 
     return results
