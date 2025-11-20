@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f3f3;
+}
+
+.container {
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  cursor: pointer;
+  background: #444;
+  color: white;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #000;
+}
+
+.btn.red {
+  background: #d9534f;
+}
+
+.btn.blue {
+  background: #0275d8;
+}
+
+.btn.gray {
+  background: #6c757d;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.task-card {
+  background: white;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
+}
+
+.task-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.priority-badge {
+  float: right;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: white;
+}
+
+.priority-high {
+  background: red;
+}
+
+.priority-normal {
+  background: blue;
+}
+
+.task-details {
+  margin-top: 12px;
+  color: #666;
+}
+
+.card-buttons {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+}
+
+.card-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: #444;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-btn:hover {
+  background: black;
+}
